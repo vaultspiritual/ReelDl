@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Download Instagram Reels & Videos in HD quality for free using ReelDL. No watermark, no login required. Works on all devices." />
+  <meta name="keywords" content="Instagram Downloader, Reels Downloader, Download Insta Reels, Save Instagram Videos, Instagram Video Download Online, Free Reel Download" />
+  <meta name="author" content="ReelDL" />
+  <title>ReelDL - Free Instagram Reels & Video Downloader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e0eafc);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.1rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #4a00e0;
+      margin-bottom: 15px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      width: 100%;
+      background: #764ba2;
+      color: white;
+      padding: 15px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #5a378c;
+    }
+    #result {
+      margin-top: 20px;
+      background: #f0fff4;
+      padding: 20px;
+      border-left: 5px solid #28a745;
+      border-radius: 10px;
+      display: none;
+    }
+    .seo-text {
+      margin-top: 40px;
+    }
+    .seo-text h3 {
+      color: #333;
+      margin-top: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    footer {
+      background: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 50px;
+    }
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ReelDL - Instagram Reels Downloader</h1>
+    <p>Download Instagram reels & videos online in HD quality — fast, free & secure.</p>
+  </header>
+
+  <main class="container">
+    <h2>Paste Instagram Reel or Video Link</h2>
+    <input type="text" id="instaURL" placeholder="e.g. https://www.instagram.com/reel/xyz/" />
+    <button onclick="getInstagramVideo()">Download Now</button>
+
+    <div id="result"></div>
+
+    <section class="seo-text">
+      <h2>About ReelDL</h2>
+      <p>ReelDL is a completely free and user-friendly Instagram downloader that allows you to save any public Instagram Reel or video in HD quality without any watermark. No login, no software — just paste the link and download.</p>
+
+      <h3>Top Features:</h3>
+      <ul>
+        <li>✅ Fast & free downloads</li>
+        <li>✅ No watermark</li>
+        <li>✅ Supports reels, videos & IGTV</li>
+        <li>✅ Mobile & desktop compatible</li>
+        <li>✅ Secure & private — no login needed</li>
+      </ul>
+
+      <h3>How to Use?</h3>
+      <p>Copy the reel or video link from Instagram, paste it in the box above, and hit the download button. Your video will be ready instantly!</p>
+
+      <h3>Is ReelDL Safe?</h3>
+      <p>Yes. We don’t track or store your data. All downloads are anonymous and secure.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 ReelDL.infy.uk — Made with ❤️ for free personal use. This site is not affiliated with Instagram.
+  </footer>
+
+  <script>
+    function getInstagramVideo() {
+      const url = document.getElementById('instaURL').value.trim();
+      if (!url || !url.includes("instagram.com")) {
+        alert("Please enter a valid Instagram URL.");
+        return;
+      }
+      document.getElementById('result').style.display = "block";
+      document.getElementById('result').innerHTML = "<em>Fetching video...</em>";
+
+      // Frontend is static; backend needed to fetch video URL (e.g., via Node/Render)
+      fetch('https://your-backend-url.com/api/download?url=' + encodeURIComponent(url))
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.downloadUrl) {
+            document.getElementById('result').innerHTML = `
+              <strong>Video found:</strong><br/>
+              <a href="${data.downloadUrl}" download target="_blank" style="color:#4a00e0;">Click here to download</a>
+            `;
+          } else {
+            document.getElementById('result').innerHTML = "<span style='color:red;'>Failed to extract video. Try again or make sure the post is public.</span>";
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          document.getElementById('result').innerHTML = "<span style='color:red;'>Error fetching the video. Try again later.</span>";
+        });
+    }
+  </script>
+</body>
+</html>
