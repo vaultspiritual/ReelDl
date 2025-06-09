@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instagram Video Downloader - Tool Vault</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: flex-start;
+            min-height: 100vh;
+            color: #333;
+        }
+        header {
+            background-color: #3f51b5;
+            width: 100%;
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 600px;
+            padding: 30px 20px;
+            background: white;
+            margin: 40px 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #3f51b5;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #283593;
+        }
+        button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #283593;
+        }
+        #result {
+            margin-top: 30px;
+            font-size: 16px;
+            word-wrap: break-word;
+        }
+        footer {
+            text-align: center;
+            padding: 15px 10px;
+            font-size: 14px;
+            color: #777;
+            width: 100%;
+            background: #f0f0f0;
+            margin-top: auto;
+        }
+        a {
+            color: #3f51b5;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>Instagram Video Downloader - Tool Vault</header>
+    <main>
+        <label for="instaUrl">Enter Instagram Video URL:</label>
+        <input type="text" id="instaUrl" placeholder="https://www.instagram.com/p/..." />
+        <button id="downloadBtn">Download Video</button>
+
+        <div id="result"></div>
+    </main>
+    <footer>
+        © 2025 Tool Vault | <a href="https://vaultspiritual.github.io" target="_blank">More Tools</a>
+    </footer>
+
+    <script>
+        const downloadBtn = document.getElementById('downloadBtn');
+        const instaUrlInput = document.getElementById('instaUrl');
+        const resultDiv = document.getElementById('result');
+
+        downloadBtn.addEventListener('click', () => {
+            const url = instaUrlInput.value.trim();
+            if (!url) {
+                alert('Please enter an Instagram video URL.');
+                return;
+            }
+
+            // This is a placeholder for actual backend API call.
+            // Since GitHub Pages is static, it can't run backend code.
+            // You will need to connect this frontend to a backend server API that fetches the video.
+
+            resultDiv.innerHTML = `<p>Trying to fetch video from: <strong>${url}</strong></p>
+                <p style="color: red;">Note: Backend server connection not set up yet.</p>`;
+        });
+    </script>
+</body>
+</html>
